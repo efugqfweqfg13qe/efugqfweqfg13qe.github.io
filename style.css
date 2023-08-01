@@ -21,7 +21,7 @@ main {
   justify-content: center;
   align-items: center;
   height: 100vh; /* Use 100vh to cover the entire viewport height */
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgb(0,0,0);
 }
 
 .description {
