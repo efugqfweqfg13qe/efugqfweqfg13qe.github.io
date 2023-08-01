@@ -1,0 +1,36 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-image: url("images/background.jpg");
+  background-size: cover;
+}
+
+header {
+  text-align: center;
+  padding: 20px;
+}
+
+header img {
+  max-width: 200px;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.description {
+  text-align: center;
+  color: #fff;
+}
+
+.description h1 {
+  font-size: 36px;
+}
+
+.description p {
+  font-size: 18px;
+}
