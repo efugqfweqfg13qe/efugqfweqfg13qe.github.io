@@ -3,6 +3,8 @@ body {
   padding: 0;
   background-image: url("images/background.jpg");
   background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
 }
 
 header {
@@ -18,7 +20,7 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 80vh;
+  height: 100vh; /* Use 100vh to cover the entire viewport height */
   background-color: rgba(0, 0, 0, 0.5);
 }
 
