@@ -53,3 +53,19 @@ main {
 .description {
   display: none; /* Remove the middle text */
 }
+
+/* Responsive styles for mobile */
+@media screen and (max-width: 768px) {
+  header img {
+    max-width: 150px; /* Adjust logo size for smaller screens */
+  }
+  
+  main {
+    height: 80vh; /* Reduce main content height for smaller screens */
+  }
+  
+  .qr-code-placeholder {
+    width: 150px; /* Adjust QR code placeholder size for smaller screens */
+    height: 150px;
+  }
+}
