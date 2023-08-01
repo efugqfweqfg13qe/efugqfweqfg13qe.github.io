@@ -5,6 +5,20 @@ body {
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
+  position: relative;
+  overflow: hidden; /* Hide overflow to prevent scrollbars from showing during the blur */
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.1); /* Darken the entire background a bit */
+  backdrop-filter: blur(5px); /* Add a slight blur to the entire background */
+  z-index: -1;
 }
 
 header {
