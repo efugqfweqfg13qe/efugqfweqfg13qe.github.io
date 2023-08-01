@@ -10,6 +10,7 @@ body {
 header {
   text-align: center;
   padding: 20px;
+  background-color: rgba(0, 0, 0, 0.5); /* Add background color with transparency */
 }
 
 header img {
@@ -20,8 +21,8 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh; /* Use 100vh to cover the entire viewport height */
-  background-color: black;
+  height: 100vh;
+  background-color: transparent; /* Make the background transparent */
 }
 
 .description {
