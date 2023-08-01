@@ -5,12 +5,14 @@ body {
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
+  background-color: rgba(0, 0, 0, 0.5); /* Darken the background */
+  backdrop-filter: blur(5px); /* Add a slight blur */
 }
 
 header {
   text-align: center;
   padding: 20px;
-  background-color: rgba(0, 0, 0, 0.5); /* Add background color with transparency */
+  background-color: rgba(0, 0, 0, 0.5); /* Darken the header background */
 }
 
 header img {
@@ -22,7 +24,7 @@ main {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: transparent; /* Make the background transparent */
+  background-color: transparent;
 }
 
 .description {
