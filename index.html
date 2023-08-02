@@ -53,6 +53,21 @@
       cursor: pointer;
     }
 
+    main {
+      /* Styles for the main content section */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.7); /* Darken the background of the main content area more */
+    }
+
+    .big-text {
+      /* Styles for the main text on the home page */
+      font-size: 6rem;
+      font-weight: bold;
+    }
+
     .login-container {
       /* Styles for the login container */
       position: absolute;
@@ -93,7 +108,7 @@
     <button id="loginButton">Log In</button>
   </header>
   <main>
-    <!-- Main content goes here -->
+    <div class="big-text">Welcome to My Website</div>
   </main>
   <div class="login-container" id="loginContainer">
     <h2>Login</h2>
@@ -112,7 +127,7 @@
     });
 
     loginSubmit.addEventListener("click", function() {
-      // Add your authentication logic here (for demo purposes, we just hide the login box)
+      // For demonstration purposes, we just hide the login box on "Enter" click
       loginContainer.style.display = "none";
     });
   </script>
