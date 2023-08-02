@@ -1,4 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Gotham:wght@400;700&display=swap');
+
 body {
+  font-family: 'Gotham', sans-serif; /* Change the font to Gotham */
   margin: 0;
   padding: 0;
   background-image: url("images/background.jpg");
@@ -14,23 +17,25 @@ body::before {
 }
 
 header {
-  text-align: center;
+  display: flex; /* Change header display to flex */
+  align-items: center; /* Center the items vertically */
+  justify-content: space-between; /* Space out the items */
   padding: 20px;
   background-color: rgba(0, 0, 0, 0.7); /* Darken the header background more */
 }
 
 header img {
-  max-width: 200px;
+  max-width: 150px; /* Reduce the logo size */
 }
 
 nav ul {
   list-style: none;
   margin: 0;
   padding: 0;
+  display: flex; /* Change navigation to flex */
 }
 
 nav li {
-  display: inline-block;
   margin-right: 20px;
 }
 
@@ -38,6 +43,14 @@ nav a {
   text-decoration: none;
   color: #fff;
   font-size: 16px;
+}
+
+nav li:first-child {
+  margin-right: auto; /* Push the first menu item to the left */
+}
+
+nav li:last-child {
+  margin-left: auto; /* Push the last menu item to the right */
 }
 
 main {
