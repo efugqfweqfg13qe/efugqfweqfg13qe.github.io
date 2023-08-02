@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Protected Page</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <img src="images/logo.png" alt="Main Logo">
+  </header>
+  <main>
+    <div class="description">
+      <h1>Welcome to My Website</h1>
+      <form id="password-form" onsubmit="return checkPassword()">
+        <label for="password">Enter the password:</label>
+        <input type="password" id="password" name="password" minlength="6" maxlength="6" required>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+    <div class="image-gallery">
+      <img src="images/image1.jpg" alt="Image 1">
+      <img src="images/image2.jpg" alt="Image 2">
+      <img src="images/image3.jpg" alt="Image 3">
+    </div>
+  </main>
+  <script>
+    function checkPassword() {
+      const enteredPassword = document.getElementById('password').value;
+      if (enteredPassword === '000000') {
+        return true;
+      } else {
+        alert('Invalid password. Please try again.');
+        return false;
+      }
+    }
+  </script>
+</body>
+</html>
