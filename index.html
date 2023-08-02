@@ -5,26 +5,31 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My Website</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="images/favicon.png">
+  <style>
+    /* Place your CSS code here or keep it in the separate style.css file */
+    /* ... */
+  </style>
 </head>
 <body>
   <header>
-    <a href="index.html"> <!-- Add an anchor tag around the logo image -->
-      <img src="images/logo.png" alt="Main Logo">
-    </a>
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
+    <img src="images/logo.png" alt="Main Logo">
   </header>
   <main>
-    <div class="description">
-      <h1>Welcome to My Website</h1>
+    <div class="qr-code-placeholder">
+      <img src="images/qr-code-placeholder.png" alt="QR Code Placeholder">
     </div>
   </main>
-  <footer>
-    <p>&copy; 2023 Your Website. All rights reserved.</p>
-  </footer>
+  <script>
+    // Place your JavaScript code here or keep it in the separate script.js file
+    document.addEventListener('mousemove', parallax);
+
+    function parallax(e) {
+      const body = document.querySelector('body');
+      const x = (window.innerWidth - e.pageX) / 100;
+      const y = (window.innerHeight - e.pageY) / 100;
+      body.style.backgroundPosition = `${x}px ${y}px`;
+    }
+  </script>
 </body>
 </html>
