@@ -12,38 +12,47 @@
     body {
       /* All the relevant CSS styles for the body go here, including font settings */
       font-family: "Gotham", sans-serif;
-      font-size: 15rem; /* 15 times bigger */
-      font-weight: bold;
+      font-size: 2rem; /* Adjust the font size to fit appropriately */
       color: #fff; /* White color */
+      margin: 0;
+      padding: 0;
+      background-image: url("images/background.jpg");
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      position: relative;
+      overflow: hidden; /* Disable scrolling */
     }
 
     body::before {
       /* Other styles for the background effect */
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.3); /* Darken the entire background */
+      backdrop-filter: blur(10px); /* Increase the blur effect */
+      z-index: -1;
     }
 
     main {
       /* Styles for the main content section */
       display: flex;
+      justify-content: center;
       align-items: center;
       height: 100vh;
       background-color: rgba(0, 0, 0, 0.7); /* Darken the background of the main content area more */
-    }
-
-    .restricted-content {
-      /* Styles for the restricted content container */
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      background-color: rgba(255, 255, 255, 0.8);
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     }
 
     .image-container {
       /* Styles for the image container */
       display: flex;
       justify-content: space-around;
+      align-items: center;
+      flex-wrap: wrap;
+      max-width: 1200px;
       margin-top: 20px;
     }
 
@@ -57,29 +66,109 @@
     .live-chat {
       /* Styles for the live chat container */
       width: 300px;
-      height: 400px;
       background-color: #fff;
       border-radius: 10px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
       margin-top: 20px;
+      padding: 10px;
+      overflow-y: scroll;
+      max-height: 400px;
+    }
+
+    .chat-message {
+      /* Styles for the chat messages */
+      padding: 5px;
+      border-bottom: 1px solid #ccc;
+    }
+
+    .chat-message:last-child {
+      border-bottom: none;
+    }
+
+    .chat-input {
+      /* Styles for the chat input */
+      display: flex;
+      margin-top: 10px;
+    }
+
+    .chat-input input {
+      /* Styles for the chat input field */
+      flex: 1;
+      padding: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px 0 0 5px;
+    }
+
+    .chat-input button {
+      /* Styles for the chat send button */
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 0 5px 5px 0;
+      cursor: pointer;
     }
   </style>
 </head>
 <body>
   <main>
-    <div class="restricted-content" id="restrictedPage">
-      <h2>Welcome to the Restricted Page</h2>
-      <div class="image-container">
-        <img src="images/image1.jpg" alt="Image 1">
-        <img src="images/image2.jpg" alt="Image 2">
-        <img src="images/image3.jpg" alt="Image 3">
-      </div>
-      <div class="live-chat">
-        <!-- Live chat content goes here -->
-        <!-- For demonstration purposes, this is just a placeholder -->
-        <p>Live Chat</p>
-      </div>
+    <div class="image-container">
+      <img src="images/image1.jpg" alt="Image 1">
+      <img src="images/image2.jpg" alt="Image 2">
+      <img src="images/image3.jpg" alt="Image 3">
+      <!-- Add more images here -->
+    </div>
+    <div class="live-chat" id="liveChat">
+      <!-- Live chat content goes here -->
     </div>
   </main>
+  <script>
+    // Place your JavaScript code here or keep it in the separate script.js file
+    const liveChat = document.getElementById("liveChat");
+
+    function addMessage(message) {
+      const chatMessage = document.createElement("div");
+      chatMessage.classList.add("chat-message");
+      chatMessage.innerText = message;
+      liveChat.appendChild(chatMessage);
+      // Scroll to the bottom of the chat
+      liveChat.scrollTop = liveChat.scrollHeight;
+    }
+
+    // Sample chat messages for demonstration purposes
+    const sampleMessages = [
+      "Hello, everyone!",
+      "How's it going?",
+      "This is a sample chat.",
+      "Feel free to send messages!",
+      "Have a great day!",
+    ];
+
+    // Add the sample chat messages to the live chat
+    sampleMessages.forEach((message) => {
+      addMessage(message);
+    });
+
+    // Function to handle sending a new message
+    function sendMessage() {
+      const inputField = document.getElementById("chatInput");
+      const message = inputField.value;
+      if (message.trim() !== "") {
+        addMessage(message);
+        inputField.value = "";
+      }
+    }
+
+    // Handle sending a new message when the enter key is pressed
+    document.getElementById("chatInput").addEventListener("keydown", (event) => {
+      if (event.key === "Enter") {
+        event.preventDefault();
+        sendMessage();
+      }
+    });
+
+    // Handle sending a new message when the send button is clicked
+    document.getElementById("sendButton").addEventListener("click", sendMessage);
+  </script>
 </body>
 </html>
