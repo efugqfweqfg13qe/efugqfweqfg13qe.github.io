@@ -1,7 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Gotham:wght@400;700&display=swap');
-
 body {
-  font-family: 'Gotham', sans-serif; /* Change the font to Gotham */
   margin: 0;
   padding: 0;
   background-image: url("images/background.jpg");
@@ -10,47 +7,30 @@ body {
   background-attachment: fixed;
   position: relative;
   overflow: hidden; /* Disable scrolling */
+  perspective: 1000px; /* Add 3D-like perspective */
 }
 
 body::before {
-  /* ... Existing styles remain the same ... */
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3); /* Darken the entire background */
+  backdrop-filter: blur(10px); /* Increase the blur effect */
+  z-index: -1;
+  transform: translate3d(0, 0, -5px); /* Parallax effect */
 }
 
 header {
-  display: flex; /* Change header display to flex */
-  align-items: center; /* Center the items vertically */
-  justify-content: space-between; /* Space out the items */
+  text-align: center;
   padding: 20px;
   background-color: rgba(0, 0, 0, 0.7); /* Darken the header background more */
 }
 
 header img {
-  max-width: 150px; /* Reduce the logo size */
-}
-
-nav ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex; /* Change navigation to flex */
-}
-
-nav li {
-  margin-right: 20px;
-}
-
-nav a {
-  text-decoration: none;
-  color: #fff;
-  font-size: 16px;
-}
-
-nav li:first-child {
-  margin-right: auto; /* Push the first menu item to the left */
-}
-
-nav li:last-child {
-  margin-left: auto; /* Push the last menu item to the right */
+  max-width: 200px;
 }
 
 main {
@@ -61,24 +41,33 @@ main {
   background-color: rgba(0, 0, 0, 0.7); /* Darken the background of the main content area more */
 }
 
+.qr-code-placeholder {
+  width: 200px;
+  height: 200px;
+}
+
+.qr-code-placeholder img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+}
+
 .description {
-  text-align: center;
-  color: #fff;
+  display: none; /* Remove the middle text */
 }
 
-.description h1 {
-  font-size: 48px; /* Increase the font size for the larger text */
+/* Responsive styles for mobile */
+@media screen and (max-width: 768px) {
+  header img {
+    max-width: 150px; /* Adjust logo size for smaller screens */
+  }
+  
+  main {
+    height: 80vh; /* Reduce main content height for smaller screens */
+  }
+  
+  .qr-code-placeholder {
+    width: 150px; /* Adjust QR code placeholder size for smaller screens */
+    height: 150px;
+  }
 }
-
-.description p {
-  display: none; /* Remove the smaller text */
-}
-
-footer {
-  text-align: center;
-  padding: 10px;
-  background-color: rgba(0, 0, 0, 0.7); /* Darken the footer background */
-  color: #fff;
-}
-
-/* Responsive styles remain the same */
