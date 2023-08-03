@@ -166,6 +166,18 @@
         alert("Invalid username or password. Please try again.");
       }
     });
+
+    // Parallax effect on the main page
+    const main = document.querySelector("main");
+    const parallaxStrength = 30; // Adjust this value to control the parallax effect
+
+    main.addEventListener("mousemove", (event) => {
+      const x = event.clientX / parallaxStrength;
+      const y = event.clientY / parallaxStrength;
+
+      main.style.backgroundPositionX = `${x}px`;
+      main.style.backgroundPositionY = `${y}px`;
+    });
   </script>
 </body>
 </html>
