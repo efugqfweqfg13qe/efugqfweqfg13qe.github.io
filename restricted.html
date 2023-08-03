@@ -44,6 +44,7 @@
 
     .chat-messages div {
       margin-bottom: 5px;
+      position: relative;
     }
 
     /* Styles for the chat input and send button */
@@ -67,6 +68,21 @@
       padding: 8px 15px;
       border-radius: 5px;
       cursor: pointer;
+    }
+
+    /* Styles for the crown icon */
+    .crown-icon {
+      position: absolute;
+      top: 50%;
+      right: -25px;
+      transform: translateY(-50%);
+      font-size: 1.5rem;
+      cursor: help;
+      display: none;
+    }
+
+    .chat-messages div[data-sender="user1"]:hover .crown-icon {
+      display: inline;
     }
   </style>
 </body>
