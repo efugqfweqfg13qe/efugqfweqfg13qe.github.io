@@ -1,14 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Website</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="icon" type="image/png" href="images/favicon.png">
+  <!-- Head content -->
   <style>
-    /* Place your CSS code here or keep it in the separate style.css file */
-    /* ... */
+    /* Common styles for the page */
     body {
       /* All the relevant CSS styles for the body go here, including font settings */
       font-family: "Gotham", sans-serif;
@@ -56,11 +51,12 @@
     main {
       /* Styles for the main content section */
       display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
+      justify-content: center; /* Center the content vertically */
+      align-items: center; /* Center the content horizontally */
       height: 100vh;
       background-color: rgba(0, 0, 0, 0.7); /* Darken the background of the main content area more */
+      position: relative; /* Add a position for the parallax effect */
+      overflow: hidden; /* Hide any UI under the login UI */
     }
 
     .big-text {
@@ -112,6 +108,33 @@
       border-radius: 5px;
       cursor: pointer;
     }
+
+    /* Styles for the parallax effect */
+    .parallax {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-attachment: fixed;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      z-index: -2;
+    }
+
+    .parallax:before {
+      /* Other styles for the background effect */
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.3); /* Darken the entire background */
+      backdrop-filter: blur(10px); /* Increase the blur effect */
+      z-index: -1;
+    }
   </style>
 </head>
 <body>
@@ -119,65 +142,19 @@
     <button id="loginButton">Log In</button>
   </header>
   <main>
+    <div class="parallax" style="background-image: url('images/background.jpg');"></div>
     <div class="logo-container">
       <img src="images/logo.png" alt="My Logo">
     </div>
     <div class="big-text">Welcome to My Website</div>
+    <div class="login-container" id="loginContainer">
+      <input type="text" placeholder="Username" id="usernameInput">
+      <input type="password" placeholder="Password" id="passwordInput">
+      <button onclick="login()">Log In</button>
+    </div>
   </main>
-  <div class="login-container" id="loginContainer">
-    <h2>Login</h2>
-    <input type="text" id="username" placeholder="Username">
-    <input type="password" id="password" placeholder="Password">
-    <button id="loginSubmit">Enter</button>
-  </div>
   <script>
-    // Place your JavaScript code here or keep it in the separate script.js file
-    const loginButton = document.getElementById("loginButton");
-    const loginContainer = document.getElementById("loginContainer");
-    const loginSubmit = document.getElementById("loginSubmit");
-
-    const validCredentials = [
-      { username: "user1", password: "password1" },
-      { username: "user2", password: "password2" },
-      { username: "user3", password: "password3" },
-      // Add more valid username/password pairs as needed
-    ];
-
-    loginButton.addEventListener("click", function() {
-      loginContainer.style.display = "flex";
-    });
-
-    loginSubmit.addEventListener("click", function() {
-      const usernameInput = document.getElementById("username");
-      const passwordInput = document.getElementById("password");
-      const enteredUsername = usernameInput.value;
-      const enteredPassword = passwordInput.value;
-
-      // Check if the entered credentials match any valid pair
-      const isValidCredentials = validCredentials.some(
-        (cred) =>
-          cred.username === enteredUsername && cred.password === enteredPassword
-      );
-
-      if (isValidCredentials) {
-        // Redirect to the restricted page if credentials are valid
-        window.location.href = "restricted.html";
-      } else {
-        alert("Invalid username or password. Please try again.");
-      }
-    });
-
-    // Parallax effect on the main page
-    const main = document.querySelector("main");
-    const parallaxStrength = 30; // Adjust this value to control the parallax effect
-
-    main.addEventListener("mousemove", (event) => {
-      const x = event.clientX / parallaxStrength;
-      const y = event.clientY / parallaxStrength;
-
-      main.style.backgroundPositionX = `${x}px`;
-      main.style.backgroundPositionY = `${y}px`;
-    });
+    // Copy the same Firebase initialization and login functions from index.html
   </script>
 </body>
 </html>
