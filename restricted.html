@@ -51,11 +51,11 @@
     main {
       /* Styles for the main content section */
       display: flex;
-      flex-direction: column;
-      justify-content: center;
+      justify-content: space-between; /* Place the chat and images side-by-side */
       align-items: center;
       height: 100vh;
       background-color: rgba(0, 0, 0, 0.7); /* Darken the background of the main content area more */
+      padding: 0 20px; /* Add padding to the sides to separate the chat and images */
     }
 
     .big-text {
@@ -113,7 +113,6 @@
       background-color: rgba(255, 255, 255, 0.8);
       border-radius: 20px;
       padding: 20px;
-      margin-top: 20px;
       max-width: 400px;
     }
 
@@ -168,6 +167,19 @@
     .chat-messages div[data-sender="user1"]:hover .crown-icon {
       display: inline;
     }
+
+    /* Styles for the image container */
+    .image-container {
+      max-width: calc(100% - 450px); /* Make sure images don't overflow on small screens */
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .image-container img {
+      max-width: 100%;
+      border-radius: 10px;
+    }
   </style>
 </head>
 <body>
@@ -175,16 +187,17 @@
     <button id="loginButton">Log In</button>
   </header>
   <main>
-    <div class="logo-container">
-      <img src="images/logo.png" alt="My Logo">
-    </div>
-    <div class="big-text">Welcome to My Website</div>
     <div class="chat-container">
       <div class="chat-messages" id="messageContainer"></div>
       <div class="chat-input-container">
         <input type="text" id="messageInput" placeholder="Type your message here">
         <button id="sendMessageButton" onclick="sendMessage()">Send</button>
       </div>
+    </div>
+    <div class="image-container">
+      <img src="images/image1.jpg" alt="Image 1">
+      <img src="images/image2.jpg" alt="Image 2">
+      <img src="images/image3.jpg" alt="Image 3">
     </div>
   </main>
   <script>
