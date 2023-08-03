@@ -110,24 +110,26 @@
 
     /* Styles for the chat container and messages */
     .chat-container {
-      background-color: rgba(255, 255, 255, 0.8);
+      background-color: rgba(40, 40, 40, 0.9); /* Dark gray theme */
       border-radius: 20px;
       padding: 20px;
-      max-width: 400px;
+      max-width: 800px; /* Make the chat much bigger */
+      height: 70vh; /* Make the chat box height 70% of the viewport height */
+      overflow-y: auto; /* Add a scrollbar for overflow */
     }
 
     .chat-messages {
-      max-height: 300px;
-      overflow-y: auto;
       padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 10px;
       margin-bottom: 10px;
     }
 
     .chat-messages div {
       margin-bottom: 5px;
       position: relative;
+    }
+
+    .chat-messages div[data-sender="user1"]:hover .crown-icon {
+      display: inline;
     }
 
     /* Styles for the chat input and send button */
@@ -142,6 +144,8 @@
       border: 1px solid #ccc;
       border-radius: 5px;
       margin-right: 10px;
+      color: #fff; /* White text color for the input field */
+      background-color: transparent; /* Transparent background */
     }
 
     .chat-input-container button {
